@@ -1,9 +1,9 @@
+import 'package:flutteer_test/theme/my_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
-
 import '../tappar/tap1.dart';
-
 class ItemTap extends StatelessWidget {
+  static const String routeName = 'f';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,24 +18,27 @@ class ItemTap extends StatelessWidget {
                     child: Image.asset(
                   "assets/images/girl.png",
                 )),
-                Column(
-                  children: [
-                    Text("hellow, jada",
-                        style: Theme.of(context).textTheme.bodySmall),
-                    Text("Redy to work?",
-                        style: Theme.of(context).textTheme.bodyMedium),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text("hellow, jada",
+                          style: Theme.of(context).textTheme.labelSmall),
+                      Text("Redy to work?",
+                          style: Theme.of(context).textTheme.displayLarge),
+                    ],
+                  ),
                 ),
                 Spacer(),
                 badges.Badge(
                   child: Icon(
-                    Icons.notifications,
-                    size: 40,
-                    color: Colors.grey,
+                    Icons.notifications_none_sharp,
+                    size: 35,
+                    color: Colors.black,
                   ), //icon style
                   badgeContent: SizedBox(
-                      width: 35,
-                      height: 5, //badge size
+                      width: 30,
+                      height: 2, //badge size
                       child: Center(
                         //aligh badge content to center
                         child: Text(
@@ -46,8 +49,8 @@ class ItemTap extends StatelessWidget {
               ],
             ),
             Container(
-              width: 50,
-              height: 70,
+              width: double.infinity,
+              height: 82,
               decoration: BoxDecoration(
                   color: Color.fromRGBO(240, 249, 255, 1),
                   borderRadius: BorderRadius.circular(10)),
@@ -56,21 +59,52 @@ class ItemTap extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Icon(Icons.heart_broken,
+                                    size: 20, color: Colors.deepPurpleAccent),
+                                Text(
+                                  "Heart rate ",
+                                  style: Theme.of(context).textTheme.labelSmall,
+                                )
+                              ],
+                            ),
+                            Text(
+                              "81 pm",
+                              style: Theme.of(context).textTheme.displayLarge,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    VerticalDivider(
+                      color: Colors.orange,
+                      thickness: 2,
+                      indent: 5,
+                      endIndent: 5,
+                    ),
+                    Center(
                       child: Column(
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.heart_broken,
-                                  color: Colors.deepPurpleAccent),
+                              Icon(
+                                Icons.menu,
+                                color: Colors.deepPurpleAccent,
+                                size: 20,
+                              ),
                               Text(
-                                "heart rate",
-                                style: Theme.of(context).textTheme.bodySmall,
+                                "To-do ",
+                                style: Theme.of(context).textTheme.labelSmall,
                               )
                             ],
                           ),
                           Text(
-                            "81 pm",
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            "32.5%",
+                            style: Theme.of(context).textTheme.displayLarge,
                           )
                         ],
                       ),
@@ -78,52 +112,32 @@ class ItemTap extends StatelessWidget {
                     VerticalDivider(
                       color: Colors.orange,
                       thickness: 2,
-                      indent: 10,
-                      endIndent: 10,
+                      indent: 5,
+                      endIndent: 5,
                     ),
                     Expanded(
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.menu, color: Colors.deepPurpleAccent),
-                              Text(
-                                "heart rate",
-                                style: Theme.of(context).textTheme.bodySmall,
-                              )
-                            ],
-                          ),
-                          Text(
-                            "81 pm",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          )
-                        ],
-                      ),
-                    ),
-                    VerticalDivider(
-                      color: Colors.orange,
-                      thickness: 2,
-                      indent: 10,
-                      endIndent: 10,
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.local_fire_department_outlined,
-                                  color: Colors.deepPurpleAccent),
-                              Text(
-                                "heart rate",
-                                style: Theme.of(context).textTheme.bodySmall,
-                              )
-                            ],
-                          ),
-                          Text(
-                            "81 pm",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          )
-                        ],
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.local_fire_department_outlined,
+                                  color: Colors.deepPurpleAccent,
+                                  size: 20,
+                                ),
+                                Text(
+                                  "Calo ",
+                                  style: Theme.of(context).textTheme.labelSmall,
+                                )
+                              ],
+                            ),
+                            Text(
+                              "1000 cal",
+                              style: Theme.of(context).textTheme.displayLarge,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -134,21 +148,53 @@ class ItemTap extends StatelessWidget {
               height: 20,
             ),
             Text(
-              "Working pro",
-              style: Theme.of(context).textTheme.bodyMedium,
+              "Work out programing",
+              style: Theme.of(context).textTheme.displayLarge,
             ),
-            TabBarView(
-              children: [
-                Center(
-                  child: Text("Chats"),
+            Expanded(
+              child: DefaultTabController(
+                key: key,
+                length: 4,
+                child: Container(
+                  height: 500,
+                  child: Column(
+                    children: [
+                      TabBar(
+                        indicatorColor: MyTheme.tapbarColor,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        tabs: [
+                          Tab(
+                            text: "All type",
+                          ),
+                          Tab(
+                            text: "Full body",
+                          ),
+                          Tab(
+                            text: "Upper",
+                          ),
+                          Tab(
+                            text: "Lower",
+                          )
+                        ],
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: double.infinity,
+                          child: TabBarView(
+                            children: [
+                              TapParPage1(),
+                              TapParPage1(),
+                              TapParPage1(),
+                              TapParPage1(),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-                Center(
-                  child: Text("Calls"),
-                ),
-                TapParPage1(),
-              ],
+              ),
             ),
-
           ],
         ),
       ),

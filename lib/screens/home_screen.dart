@@ -52,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeTap(),
     ItemTap(),
     ShopTap(),
+    ShopTap(),
     PersonTap(),
   ];
 
